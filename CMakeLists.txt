@@ -15,4 +15,5 @@ install(FILES include/csv.h DESTINATION include/${PROJECT_NAME})
 # Enable testing for the project
 enable_testing()
 add_executable(Test tests/test.c)
+add_test(NAME Test COMMAND Test)
 target_link_libraries(Test csv_parser)
