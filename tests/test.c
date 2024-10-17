@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "../csv.h"
+#include "csv.h"
 
 int test_parse_csv(void);
 int test_split_on_unescaped_newlines(void);
@@ -82,7 +82,8 @@ int test_split_on_unescaped_newlines(void) {
 
 int test_fread_csv_line(void) {
   int err, done = 0;
-  FILE *fp = fopen("tests/test.csv", "r");
+  // We are opening from the cmake-build-debug folder.
+  FILE *fp = fopen("../tests/test.csv", "r");
 
   if ( strcmp( fread_csv_line(fp, 1024, &done, &err), "foo,bar,baz" ) || done ) {
     return 0;
