@@ -82,7 +82,7 @@ int test_split_on_unescaped_newlines(void) {
 
 int test_fread_csv_line(void) {
   int err, done = 0;
-  // We are opening from the cmake-build-debug folder.
+  // We are opening from the cmake-build-debug folder
   FILE *fp = fopen("../tests/test.csv", "r");
 
   if ( strcmp( fread_csv_line(fp, 1024, &done, &err), "foo,bar,baz" ) || done ) {
