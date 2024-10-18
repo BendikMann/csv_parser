@@ -24,7 +24,6 @@ target_include_directories(csv_parser
         "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 )
 
-
 # install the target and create export-set
 install(TARGETS csv_parser
         EXPORT csv_parserTargets
@@ -44,7 +43,7 @@ install(EXPORT csv_parserTargets
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/csv_parser
 )
 
-# include CMakePackageConfigHelpers
+# include CMakePackageConfigHelpers macro
 include(CMakePackageConfigHelpers)
 
 # set version
@@ -88,13 +87,7 @@ export(EXPORT csv_parserTargets
 
 enable_testing()
 
-include_directories(tests)
-
-add_executable(Test tests/test.c
-        )
-
-
+add_executable(Test tests/test.c)
 target_link_libraries(Test csv_parser)
-
 add_test(Test Test)
 
