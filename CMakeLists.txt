@@ -87,7 +87,12 @@ export(EXPORT csv_parserTargets
 
 enable_testing()
 
-add_executable(Test tests/test.c)
+include_directories(tests)
+
+add_executable(Test tests/test.c
+        )
+
+
 target_link_libraries(Test csv_parser)
 add_test(Test Test)
 
