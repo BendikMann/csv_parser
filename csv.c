@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include "csv_config.h"
 
 void free_csv_line( char **parsed ) {
     char **ptr;
@@ -27,7 +28,7 @@ static int count_fields( const char *line ) {
             case '\"':
                 fQuote = 1;
                 continue;
-            case ',':
+            case DELIMITING_CHAR:
                 cnt++;
                 continue;
             default:
@@ -100,7 +101,7 @@ char **parse_csv( const char *line ) {
                 continue;
             case '\0':
                 fEnd = 1;
-            case ',':
+            case DELIMITING_CHAR:
                 *tptr = '\0';
                 *bptr = strdup( tmp );
 
